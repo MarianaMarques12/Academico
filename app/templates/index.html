@@ -1,78 +1,58 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerenciamento Acadêmico</title>
-  <!-- Incluindo Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Sistema de Cadastro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand" href="/">Sistema Academico</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/">Página Inicial</a>
-        </li>
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="/">Sistema Acadêmico</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Cadastro -->
+                <li class="nav-item"><a class="nav-link text-dark" href="/pessoa/">Pessoa</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/cidade/">Cidade</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/ocupacao/">Ocupação</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/instituicaoensino/">Instituição</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/areasaber/">Área do Saber</a></li>
 
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="admin">Administração</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="estudantes">Estudantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="cursos">Cursos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="disciplinas">Disciplinas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="avaliacoes">Avaliações</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="turmas">Turmas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="professores">Professores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="frequencia">Frequencias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="matriculas">Matriculas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="ocorrencias">Ocorrencias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="areasdosaber">Áreas do Saber</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="instituicoes">Instituições</a>
-        </li>
+                <!-- Acadêmico -->
+                <li class="nav-item"><a class="nav-link text-dark" href="/curso/">Curso</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/turma/">Turma</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/disciplina/">Disciplina</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/matricula/">Matrícula</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/frequencia/">Frequência</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/avaliacao/">Avaliação</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/avaliacaotipo/">Tipo Avaliação</a></li>
 
-      </ul>
+                <!-- Outros -->
+                <li class="nav-item"><a class="nav-link text-dark" href="/turno/">Turno</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/ocorrencia/">Ocorrência</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/cursodisciplina/">Curso-Disciplina</a></li>
+
+                <!-- Administração -->
+                <li class="nav-item"><a class="nav-link text-dark" href="/admin/">Administração</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Jumbotron de boas-vindas -->
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Bem-vindo ao Sistema Acadêmico</h1>
+            <p class="lead">Gerencie cadastros de alunos, cursos, disciplinas, avaliações e mais.</p>
+        </div>
     </div>
-  </nav>
 
-  <h1>Bem-vindo ao Sistema de Gerenciamento Acadêmico</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, obcaecati quis unde soluta, similique ducimus ut doloribus iure exercitationem ad provident dolores voluptas fuga nostrum magnam quidem neque. Reprehenderit, ad.</p>
-
-
-  <!-- Incluindo jQuery e Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -41,37 +41,42 @@
     </nav>
 
 <div class="container my-5">
-  <h1 class="mb-4 text-center">Lista de Frequências</h1>
+    <h1 class="text-center mb-4">Lista de Pessoas</h1>
 
-  {% if object_list %}
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Curso</th>
-        <th>Disciplina</th>
-        <th>Pessoa</th>
-        <th>Número de Faltas</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for frequencia in object_list %}
-      <tr>
-        <td>{{ frequencia.curso.nome }}</td>
-        <td>{{ frequencia.disciplina.nome }}</td>
-        <td>{{ frequencia.pessoa.nome }}</td>
-        <td>{{ frequencia.numero_faltas }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% else %}
-  <div class="alert alert-warning text-center" role="alert">
-    Nenhuma frequência registrada.
-  </div>
-  {% endif %}
+    {% if pessoas %}
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Mãe</th>
+                    <th>Pai</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Ocupação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.mae }}</td>
+                    <td>{{ pessoa.pai }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.ocupacao }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center" role="alert">
+        Nenhuma pessoa cadastrada.
+    </div>
+    {% endif %}
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

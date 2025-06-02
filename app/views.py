@@ -1,74 +1,97 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
+from django.views import View
+from django.contrib import messages
+from django.views.generic import ListView
+from .models import Pessoa
+from django.views.generic.edit import CreateView
+from .models import Disciplina
+from django.urls import reverse_lazy
 
-# Create your views here.
+class IndexView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
+    def post(self, request):
+        pass
+class PessoaListView(ListView):
+    model = Pessoa
+    template_name = 'pessoa.html'  # Nome do seu template
+    context_object_name = 'pessoas'
 
-def IndexView(request):
-    return render(request, 'index.html')
+class CidadeListView(ListView):
+    model = Cidade
+    template_name = 'cidade.html'
+    context_object_name = 'cidades'
 
-def EstudantesView(request):
-    context = {
-        'estudantes': Estudante.objects.all(),
-    }
+class OcupacaoListView(ListView):
+    model = Ocupacao
+    template_name = 'ocupacao.html'
+    context_object_name = 'ocupacoes'
+class InstituicaoListView(ListView):
+    model = InstituicaoEnsino
+    template_name = 'instituicaoensino.html'
+    context_object_name = 'instituicoes'
+class AreaSaberListView(ListView):
+    model = AreaSaber
+    template_name = 'areasaber.html'
+    context_object_name = 'areas'
+class AvaliacaoTipoListView(ListView):
+    model = AvaliacaoTipo
+    template_name = 'avaliacaotipo.html'
+    context_object_name = 'tipos'
 
-    return render(request, 'estudantes.html', context)
+class CursoListView(ListView):
+    model = Curso
+    template_name = 'curso.html'
+    context_object_name = 'cursos'
+    
+class DisciplinaCreateView(CreateView):
+    model = Disciplina
+    fields = ['nome', 'outro_campo']  # substitua pelos campos do seu model
+    template_name = 'disciplina_form.html'  # crie esse template
+    success_url = reverse_lazy('disciplina-list')
 
-def TurmasView(request):
-    context = {
-        'turmas': Turma.objects.all(),
-    }
-    return render(request, 'turmas.html', context)
+class TurmaListView(ListView):
+    model = Turma
+    template_name = 'turma.html'
+    context_object_name = 'turmas'
 
-def DisciplinasView(request):
-    context = {
-        'disciplinas': Disciplina.objects.all(),
-    }
-    return render(request, 'disciplinas.html', context)
 
-def CursosView(request):
-    context = {
-        'cursos': Curso.objects.all(),
-    }
-    return render(request, 'cursos.html', context)
+class DisciplinaListView(ListView):
+    model = Disciplina
+    template_name = 'disciplina.html'
+    context_object_name = 'disciplinas'
 
-def AvaliacoesView(request):
-    context = {
-        'avaliacoes': Avaliacao.objects.all(),
-    }
-    return render(request, 'avaliacoes.html', context)
+class MatriculaListView(ListView):
+    model = Matricula
+    template_name = 'matricula.html'
+    context_object_name = 'matriculas'
 
-def ProfessoresView(request):
-    context = {
-        'professores': Professor.objects.all(),
-    }
-    return render(request, 'professores.html', context)
+class FrequenciaListView(ListView):
+    model = Frequencia
+    template_name = 'frequencia.html'
+    context_object_name = 'frequencias'
 
-def FrequenciasView(request):
-    context = {
-        'frequencia': Frequencia.objects.all(),
-    }
-    return render(request, 'frequencia.html', context)
+class AvaliacaoListView(ListView):
+    model = Avaliacao
+    template_name = 'avaliacao.html'
+    context_object_name = 'avaliacoes'
 
-def MatriculasView(request):
-    context = {
-        'matriculas': Matricula.objects.all(),
-    }
-    return render(request, 'matriculas.html', context)
 
-def OcorrenciasView(request):
-    context = {
-        'ocorrencias': Ocorrencia.objects.all(),
-    }
-    return render(request, 'ocorrencias.html', context)
+class TurnoListView(ListView):
+    model = Turno
+    template_name = 'turno.html'
+    context_object_name = 'turnos'
 
-def InstituicoesView(request):
-    context = {
-        'instituicoes': InstituicaoEnsino.objects.all(),
-    }
-    return render (request, 'instituicoes.html', context)
+class OcorrenciaListView(ListView):
+    model = Ocorrencia
+    template_name = 'ocorrencia.html'
+    context_object_name = 'ocorrencias'
 
-def AreasdosaberView(request):
-    context = {
-        'areasdosaber': AreaDoSaber.objects.all(),
-    }
-    return render (request, 'areadosaber.html', context)    
+
+class CursoDisciplinaListView(ListView):
+    model = CursoDisciplina
+    template_name = 'cursodisciplina.html'
+    context_object_name = 'cursodisciplinas'
+
+

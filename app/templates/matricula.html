@@ -39,34 +39,27 @@
             </ul>
         </div>
     </nav>
-
 <div class="container my-5">
-  <h1 class="mb-4 text-center">Lista de Frequências</h1>
+  <h2 class="text-center mb-4">Matrículas</h2>
 
-  {% if object_list %}
-  <table class="table table-striped table-bordered">
+  {% if matriculas %}
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
         <th>Curso</th>
-        <th>Disciplina</th>
-        <th>Pessoa</th>
-        <th>Número de Faltas</th>
       </tr>
     </thead>
     <tbody>
-      {% for frequencia in object_list %}
+      {% for m in matriculas %}
       <tr>
-        <td>{{ frequencia.curso.nome }}</td>
-        <td>{{ frequencia.disciplina.nome }}</td>
-        <td>{{ frequencia.pessoa.nome }}</td>
-        <td>{{ frequencia.numero_faltas }}</td>
+        <td>{{ m.curso.nome }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
   {% else %}
   <div class="alert alert-warning text-center" role="alert">
-    Nenhuma frequência registrada.
+    Nenhuma matrícula encontrada.
   </div>
   {% endif %}
 </div>
